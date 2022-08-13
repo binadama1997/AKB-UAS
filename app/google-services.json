@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "726298604822",
+    "project_id": "akb-uas-d2780",
+    "storage_bucket": "akb-uas-d2780.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726298604822:android:1d08e83e8e0a484e794c37",
+        "android_client_info": {
+          "package_name": "com.rex1997.akb_uas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726298604822-bar3uan735urc7cavapsjtim405411gd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rex1997.akb_uas",
+            "certificate_hash": "6cd5d31ccc27b35ac7ccbe4872105d48b98cad2e"
+          }
+        },
+        {
+          "client_id": "726298604822-8u5229nciaogju6be4uhi0jkf2kurvgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvgd2zp3bXWj4ybo3sDGyfONSlDGvXKdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726298604822-8u5229nciaogju6be4uhi0jkf2kurvgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
