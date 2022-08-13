@@ -39,7 +39,6 @@ public class NewNoteFragment extends Fragment {
         titleText = rootView.findViewById(R.id.titleText);
         contentText = rootView.findViewById(R.id.contentText);
 
-
         return rootView;
     }
 

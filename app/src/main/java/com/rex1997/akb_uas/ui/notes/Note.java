@@ -1,8 +1,9 @@
 package com.rex1997.akb_uas.ui.notes;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Note {
@@ -16,11 +17,6 @@ public class Note {
     private String creationDate;
     @ColumnInfo(name="modification_date")
     private String modificationDate;
-
-    public Note()
-    {
-
-    }
 
     public Note(int noteId, String noteTitle, String noteContent, String creationDate, String modificationDate) {
         this.noteId = noteId;
@@ -70,6 +66,7 @@ public class Note {
         this.modificationDate = modificationDate;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Note{" +

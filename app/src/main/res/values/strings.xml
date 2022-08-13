@@ -47,4 +47,5 @@
     <string name="notes_date">Today\'s Date</string>
     <string name="notes_cont">Notes</string>
     <string name="new_notes_frament">New Notes</string>
+    <string name="menu_newnotes">New Notes</string>
 </resources>

@@ -1,11 +1,12 @@
 package com.rex1997.akb_uas.ui.notes;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {Note.class}, version = 1)
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+@Database(entities = {Note.class}, version = 1, exportSchema = false)
 public abstract class NoteAppDatabase extends RoomDatabase
 {
     public abstract NoteDAO noteDao();

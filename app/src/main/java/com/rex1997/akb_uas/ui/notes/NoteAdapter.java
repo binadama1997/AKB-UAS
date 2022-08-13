@@ -1,5 +1,6 @@
 package com.rex1997.akb_uas.ui.notes;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,8 +37,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.note_item,
-                        parent,
+                .inflate(R.layout.note_item, parent,
                         false));
     }
 
@@ -91,6 +91,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         NotesFragment.noteAppDatabase.noteDao().deleteNote(noteList.get(position).getNoteId());
                         return null;
                     }
+                    @SuppressLint("NotifyDataSetChanged")
                     @Override
                     protected void onPostExecute(Void unused) {
                         super.onPostExecute(unused);
