@@ -5,52 +5,46 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.rex1997.akb_uas.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NewNoteFragment extends Fragment {
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
+public class NewNoteFragment extends AppCompatActivity {
 
     private ImageButton saveBtn;
     private EditText titleText, contentText;
     private Note note;
     private String action;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_newnotes);
 
-        View rootView = inflater.inflate(R.layout.fragment_newnotes, container, false);
+        saveBtn = findViewById(R.id.saveBtn);
 
-        saveBtn = rootView.findViewById(R.id.saveBtn);
-        titleText = rootView.findViewById(R.id.titleText);
-        contentText = rootView.findViewById(R.id.contentText);
-
-        return rootView;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        titleText = findViewById(R.id.titleText);
+        contentText = findViewById(R.id.contentText);
 
         blindSaveButton();
 
-        Intent intent = requireActivity().getIntent();
+        Intent intent=getIntent();
         action=intent.getStringExtra("action");
-        if(!action.equalsIgnoreCase("create"))
+        if("create".equalsIgnoreCase(action))
         {
             addControls();
         }
@@ -58,7 +52,7 @@ public class NewNoteFragment extends Fragment {
     }
 
     private void addControls() {
-        Intent intent = requireActivity().getIntent();
+        Intent intent = getIntent();
         int id = intent.getIntExtra("id", -1);
         class GetNote extends AsyncTask<Void, Void, Void>
         {
@@ -83,7 +77,7 @@ public class NewNoteFragment extends Fragment {
     private void addEvents() {
 
         saveBtn.setOnClickListener(v -> {
-            if(action.equalsIgnoreCase("create"))
+            if(!"create".equalsIgnoreCase(action))
             {
                 processSaveNote(v);
             }
@@ -130,8 +124,7 @@ public class NewNoteFragment extends Fragment {
         String content = contentText.getText().toString();
         note.setNoteTitle(title);
         note.setNoteContent(content);
-        @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         note.setModificationDate(formatter.format(date));
 
@@ -140,14 +133,14 @@ public class NewNoteFragment extends Fragment {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                NoteAppDatabase.getAppDatabase(requireActivity().getApplicationContext()).noteDao().update(note);
+                NoteAppDatabase.getAppDatabase(getApplicationContext()).noteDao().update(note);
                 return null;
             }
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                Toast.makeText(requireActivity().getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
-                requireActivity().finish();
+                Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_LONG).show();
+                finish();
             }
         }
         UpdateNote updateNote = new UpdateNote();
@@ -165,8 +158,7 @@ public class NewNoteFragment extends Fragment {
 
         String title = titleText.getText().toString();
         String content = contentText.getText().toString();
-        @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         Note note = new Note(0,title, content, formatter.format(date),"");
         class SaveNote extends AsyncTask<Void, Void, Void>
@@ -174,15 +166,15 @@ public class NewNoteFragment extends Fragment {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                NoteAppDatabase.getAppDatabase(requireActivity().getApplicationContext()).noteDao().add(note);
+                NoteAppDatabase.getAppDatabase(getApplicationContext()).noteDao().add(note);
                 return null;
             }
 
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                Toast.makeText(requireActivity().getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
-                requireActivity().finish();
+                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
+                finish();
             }
         }
         SaveNote saveNote = new SaveNote();
@@ -190,7 +182,7 @@ public class NewNoteFragment extends Fragment {
     }
 
     private void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

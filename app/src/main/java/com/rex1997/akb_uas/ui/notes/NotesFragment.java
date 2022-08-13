@@ -18,6 +18,11 @@ import com.rex1997.akb_uas.R;
 
 import java.util.List;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 public class NotesFragment extends Fragment {
 
     private ImageButton addBtn;
@@ -43,6 +48,7 @@ public class NotesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         class GetAllNotes extends AsyncTask<Void, Void, Void>
         {
             @Override

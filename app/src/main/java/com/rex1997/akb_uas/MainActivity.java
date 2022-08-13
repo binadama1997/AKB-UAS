@@ -26,6 +26,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.rex1997.akb_uas.auth.SignInActivity;
 import com.rex1997.akb_uas.databinding.ActivityMainBinding;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

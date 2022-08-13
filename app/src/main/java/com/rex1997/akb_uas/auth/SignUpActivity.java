@@ -15,6 +15,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.rex1997.akb_uas.MainActivity;
 import com.rex1997.akb_uas.R;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 public class SignUpActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword, inputRePassword;

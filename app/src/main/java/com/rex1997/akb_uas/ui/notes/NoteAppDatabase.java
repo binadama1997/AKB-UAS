@@ -6,6 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 @Database(entities = {Note.class}, version = 1, exportSchema = false)
 public abstract class NoteAppDatabase extends RoomDatabase
 {

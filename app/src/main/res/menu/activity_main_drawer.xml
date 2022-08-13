@@ -13,10 +13,6 @@
             android:icon="@drawable/ic_baseline_note_24"
             android:title="@string/menu_notes" />
         <item
-            android:id="@+id/nav_newnotes"
-            android:icon="@drawable/ic_baseline_note_add_24"
-            android:title="@string/menu_notes" />
-        <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/menu_about" />

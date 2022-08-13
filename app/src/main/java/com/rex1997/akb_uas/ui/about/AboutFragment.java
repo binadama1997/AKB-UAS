@@ -11,6 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.rex1997.akb_uas.databinding.FragmentAboutBinding;
+import com.rex1997.akb_uas.databinding.FragmentProfileBinding;
+
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
 
 public class AboutFragment extends Fragment {
 
@@ -23,9 +29,8 @@ public class AboutFragment extends Fragment {
                 new ViewModelProvider(this).get(AboutViewModel.class);
 
         binding = FragmentAboutBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        return root;
+        return binding.getRoot();
     }
 
     @Override

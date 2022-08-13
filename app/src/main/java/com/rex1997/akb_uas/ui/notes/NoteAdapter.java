@@ -20,12 +20,16 @@ import com.rex1997.akb_uas.R;
 import java.util.List;
 import java.util.Random;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     private final List<Note> noteList;
     private final Context context;
     public static String[] colorList = {"#DC3545", "#28A745", "#007BFF", "#17A2B8", "#FD7E14", "#6F42C1"};
-
 
     public NoteAdapter(Context context, List<Note> noteList) {
         this.context = context;

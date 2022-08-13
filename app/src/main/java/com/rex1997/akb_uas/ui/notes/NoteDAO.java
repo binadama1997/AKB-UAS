@@ -8,6 +8,11 @@ import androidx.room.Update;
 
 import java.util.List;
 
+/*
+Created at 12/08/2022
+Created by Bina Damareksa (NIM: 10121702; Class: AKB-7)
+*/
+
 @Dao
 public interface NoteDAO {
     @Update
